@@ -14,7 +14,3 @@ npm run serve
 ```
 npm run build
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> fd01e625338998a6763cbe826aceac25d4bce56a
