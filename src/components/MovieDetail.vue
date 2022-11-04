@@ -99,8 +99,11 @@
             </v-card>
           </v-dialog>
           <v-btn tile color="primary" class="ml-2" @click="addFavo">
-            <v-icon left>mdi-heart</v-icon>Favorito
-          </v-btn>
+            <v-icon left>mdi-heart</v-icon>Favorito </v-btn
+          ><br /><br />
+          <v-alert type="error" v-if="active != 0">
+            Ya tienes añadida esta pelicula como favorita!.
+          </v-alert>
         </v-col>
       </v-row>
       <v-divider class="mt-2"></v-divider>
@@ -130,10 +133,12 @@ export default {
         images: {
           backdrops: {},
         },
+        id: "id",
       },
       isVideo: false,
       mediaURL: "",
       dialog: false,
+      active: 0,
     };
   },
   mounted() {
@@ -173,11 +178,13 @@ export default {
     },
     addFavo() {
       this.temp = this.arrFinal;
-      console.log(typeof this.temp);
-      if (this.movie.id == this.temp) {
-        alert("Ya tienes agragado esta pelicula como favorita!");
+      let verificarPelicula = this.temp.find((pelicula) => {
+        return pelicula.id === this.movie.id;
+      });
+      if (verificarPelicula) {
+        this.active = 1;
       } else {
-        this.temp.push(this.movie.id);
+        this.temp.push(this.movie);
         localStorage.setItem("favoritos", JSON.stringify(this.temp));
       }
     },

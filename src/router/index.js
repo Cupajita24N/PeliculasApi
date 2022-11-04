@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import MovieDetail from '../components/MovieDetail.vue'
 import Actors from '../components/Actors.vue'
 import ActorDetail from '../components/ActorDetail.vue'
-import Agregar from '../components/AgregarMovie.vue'
+import Agregar from '../components/MoviesFav.vue'
 Vue.use(VueRouter)
 
 const routes = [
