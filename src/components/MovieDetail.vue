@@ -143,7 +143,6 @@ export default {
   },
   mounted() {
     this.arrFinal = JSON.parse(localStorage.getItem("favoritos")) || [];
-    console.log(this.arrFinal);
     this.fetchMovie(this.$route.params.id);
   },
   watch: {

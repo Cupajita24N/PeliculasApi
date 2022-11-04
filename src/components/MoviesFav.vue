@@ -69,12 +69,8 @@ export default {
   computed: {},
   methods: {
     deleteFav(movie) {
-      // console.log(this.arrFinal, "antes");
       this.arrFinal = this.arrFinal.filter((peli) => peli.id !== movie);
       localStorage.setItem("favoritos", JSON.stringify(this.arrFinal));
-
-      // console.log(this.arrFinal, "despues");
-      // localStorage.removeItem("favoritos", movie);
     },
     async fetchGenres(page) {
       try {
