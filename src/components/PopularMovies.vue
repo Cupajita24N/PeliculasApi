@@ -47,13 +47,13 @@ export default {
   async mounted() {
     this.fetchGenres(currentPage);
     this.fetchGenresList(currentPage);
-
   },
   methods: {
     async fetchGenres(page) {
       try {
         const response = await this.$http.get(
-          "https://api.themoviedb.org/3/movie/popular?page=" + page);
+          "https://api.themoviedb.org/3/movie/popular?page=" + page
+        );
         this.movies = response.data.results.slice(0, 12);
       } catch (error) {
         console.log(error);
@@ -83,7 +83,9 @@ export default {
 
     async fetchGenresList() {
       try {
-        const response = await this.$http.get("https://api.themoviedb.org/3/genre/movie/list?language=es-US");
+        const response = await this.$http.get(
+          "https://api.themoviedb.org/3/genre/movie/list?language=es-US"
+        );
         this.genres = response.data.genres;
       } catch (error) {
         console.log(error);
